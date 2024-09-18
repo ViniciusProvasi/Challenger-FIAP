@@ -1,0 +1,292 @@
+:root {
+    --main-color: #B82525;
+    --secondary-color: #761818;
+    --highlight-color: #A30505;
+}
+
+/* Global styles */
+body,
+html {
+    font-family: 'Lexend', sans-serif;
+    background-color: #E62E2E;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+section {
+    padding: 0;
+    margin: 0;
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.custom-row {
+    height: 554px;
+    display: flex;
+    align-items: center;
+}
+
+.custom-financial {
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 500;
+    padding-left: 80px;
+    text-align: left;
+    justify-content: center;
+}
+
+.custom-financial h1 {
+    font-size: 90px;
+}
+
+.custom-financial h2 {
+    font-size: 80px;
+}
+
+.financial-card {
+    font-weight: 400;
+    color: var(--secondary-color);
+    background-color: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 500px;
+    max-width: 100%;
+    height: 390px;
+    display: flex;
+    justify-content: center;
+}
+
+.financial-card h3 {
+    font-size: 35px;
+    margin-top: 10px;
+}
+
+.custom-divider {
+    border-top: 2px solid #931E1E;
+    margin-top: 1px;
+    margin-bottom: 30px;
+    opacity: 1;
+    background-color: transparent;
+}
+
+.financial-card div,
+.financial-card span,
+.product-info .sales,
+.product-info .quantity,
+.fechamento-container {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.product-info .sales,
+.product-info .quantity {
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.icon-eye {
+    cursor: pointer;
+}
+
+.financial-data {
+    display: none;
+}
+
+.financial-data.show {
+    display: inline;
+}
+
+/* Bloco Principais Produtos */
+.product-info {
+    height: 560px;
+}
+
+.product-info .title {
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 100px;
+}
+
+.logo-container {
+    width: 150px;
+    height: 150px;
+    background-image: url('../img/Dashboard/logo.png'); /* Caminho relativo ao CSS */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* Bloco de Salgados e Doces */
+.salgados-block,
+.doces-block,
+.month-block {
+    height: 560px;
+}
+
+.salgados-image-container,
+.doces-image-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.salgados-image-container {
+    background-image: url('../img/Dashboard/salgados.png');
+}
+
+.doces-image-container {
+    background-image: url('../img/Dashboard/doces.png');
+}
+
+.salgados-text,
+.doces-text {
+    z-index: 1;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.salgados-text {
+    color: #000000;
+}
+
+.doces-text {
+    color: #FFFFFF;
+}
+
+/* Bloco Mês */
+.month-block {
+    font-size: 24px;
+    color: var(--main-color);
+    height: 560px;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.month-title {
+    font-weight: bold;
+    margin-bottom: 100px;
+}
+
+.month-sales,
+.month-quantity {
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.custom-position {
+    overflow: hidden;
+}
+
+.custom-background {
+    background-color: #FFFFFF;
+}
+
+.custom-background-secondary {
+    background-color: #E62E2E;
+}
+
+.custom-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(230, 46, 46, 0.1), rgba(230, 225, 225, 0));
+    z-index: 2;
+}
+
+.custom-overlay-secondary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 225, 225, 1));
+    z-index: 2;
+}
+
+/* Bloco com gráfico e fechamento mensal */
+.chart-fechamento-bloco {
+    height: 570px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.0), rgba(230, 46, 46, 0.8)), url('../img/Dashboard/entregador.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.chart-container {
+    width: 400px;
+    height: 400px;
+}
+
+.color-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.janeiro {
+    background-color: red;
+}
+
+.fevereiro {
+    background-color: blue;
+}
+
+.marco {
+    background-color: yellow;
+}
+
+.abril {
+    background-color: green;
+}
+
+.fechamento-container {
+    font-weight: 400;
+    color: var(--main-color);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(210, 210, 210, 0.35));
+    padding: 40px;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 578px;
+    height: 300px;
+}
+
+.fechamento-container h2 {
+    text-align: center;
+    color: var(--highlight-color);
+    margin-bottom: 20px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}

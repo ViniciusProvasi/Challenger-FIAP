@@ -1,0 +1,25 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  list-style: none;
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../img/imgLogin.png");
+  background-repeat: no-repeat;
+  background-size: 56% 110%;
+}
+
+@media screen and (max-width: 992px) {
+  body{
+    width: 100vw;
+    height: 100vh;
+    background-image: none;
+    background: linear-gradient(to top right, darkred, #fc6767);
+  }
+
+}

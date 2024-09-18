@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+    <link rel="stylesheet" href="../CSS/navbar.css">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <section class="container-fluid my-5">
+        <!-- Controle Financeiro -->
+        <div class="row g-0 custom-row">
+            <div class="col-lg-6 custom-financial">
+                <div>
+                    <h2>Controle</h2>
+                    <h1>Financeiro</h1>
+                </div>
+            </div>
+            <!-- Cartão com dados financeiros -->
+            <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                <div class="card p-3 financial-card">
+                    <!-- Centralizando o título "Junho" e adicionando o divider -->
+                    <h3 class="text-center">Junho</h3>
+                    <hr class="custom-divider">
+                    <ul class="list-unstyled mt-4 custom-list">
+                        <!-- Linha 1: Saldo Atual -->
+                        <li class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="col-5 text-start">Saldo Atual:</div>
+                            <div class="col-4 text-end">
+                                <span class="financial-data">R$ 10.000,00</span>
+                                <span class="hidden-data">********</span>
+                            </div>
+                            <div class="col-3 text-end">
+                                <i class="icon-eye bi bi-eye-slash" onclick="toggleVisibility(this)"></i>
+                            </div>
+                        </li>
+                        <!-- Linha 2: Total a Receber -->
+                        <li class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="col-5 text-start">Total a Receber:</div>
+                            <div class="col-4 text-end">
+                                <span class="financial-data">R$ 5.000,00</span>
+                                <span class="hidden-data">********</span>
+                            </div>
+                            <div class="col-3 text-end">
+                                <i class="icon-eye bi bi-eye-slash" onclick="toggleVisibility(this)"></i>
+                            </div>
+                        </li>
+                        <!-- Linha 3: Total Recebido -->
+                        <li class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="col-5 text-start">Total Recebido:</div>
+                            <div class="col-4 text-end">
+                                <span class="financial-data">R$ 7.000,00</span>
+                                <span class="hidden-data">********</span>
+                            </div>
+                            <div class="col-3 text-end">
+                                <i class="icon-eye bi bi-eye-slash" onclick="toggleVisibility(this)"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produtos Mais Vendidos -->
+        <div class="position-relative custom-position">
+            <div class="row g-0 custom-background">
+                <!-- Coluna 1: Texto "Confira os Principais Produtos Mais Vendidos" -->
+                <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center text-center product-info">
+                    <p class="title">CONFIRA OS PRINCIPAIS <br> PRODUTOS MAIS VENDIDOS</p>
+                    <p class="sales">VENDIDOS: R$ X.XXX,XX</p>
+                    <p class="quantity">QUANTIDADE: XX unidades</p>
+                    <div class="logo-container"></div>
+                </div>
+
+                <!-- Coluna 2: Bloco de Salgados -->
+                <div class="col-lg-6 d-flex justify-content-center salgados-block">
+                    <div class="position-relative salgados-image-container">
+                        <p class="salgados-text">SALGADOS</p>
+                    </div>
+                </div>
+            </div>
+            <div class="custom-overlay"></div>
+        </div>
+
+        <!-- Total Vendido No Mês -->
+        <div class="position-relative custom-position">
+            <div class="row g-0 custom-background-secondary">
+                <!-- Coluna 1: Bloco de Doces -->
+                <div class="col-lg-6 d-flex justify-content-center doces-block">
+                    <div class="position-relative doces-image-container">
+                        <p class="doces-text">DOCES</p>
+                    </div>
+                </div>
+
+                <!-- Coluna 2: Bloco de "Mês de XX, Vendidos..." -->
+                <div class="col-lg-6 month-block">
+                    <p class="month-title">MÊS DE XX</p>
+                    <p class="month-sales">VENDIDOS: R$ X.XXX,XX</p>
+                    <p class="month-quantity">QUANTIDADE: XX unidades</p>
+                </div>                
+            </div>
+            <div class="custom-overlay-secondary"></div>
+        </div>
+
+        <!-- Gráfico -->
+        <div class="row g-0 chart-fechamento-bloco">
+            <div class="col-lg-6 text-white d-flex align-items-center justify-content-center">
+                <div class="chart-container">
+                    <canvas id="myPieChart"></canvas>
+                </div>
+            </div>
+
+            <!-- card fechamento mensal -->
+            <div class="col-lg-6 d-flex align-items-center justify-content-start">
+                <div class="fechamento-container">
+                    <h2>FECHAMENTO MENSAL</h2>
+                    <div class="item">
+                        <div><span class="color-circle janeiro"></span>Janeiro</div>
+                        <div id="valor-janeiro">R$ 0,00</div>
+                    </div>
+                    <div class="item">
+                        <div><span class="color-circle fevereiro"></span>Fevereiro</div>
+                        <div id="valor-fevereiro">R$ 0,00</div>
+                    </div>
+                    <div class="item">
+                        <div><span class="color-circle marco"></span>Março</div>
+                        <div id="valor-marco">R$ 0,00</div>
+                    </div>
+                    <div class="item">
+                        <div><span class="color-circle abril"></span>Abril</div>
+                        <div id="valor-abril">R$ 0,00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let janeiro = 10;
+        let fevereiro = 30;
+        let marco = 40;
+        let abril = 20;
+
+        // Função para atualizar os valores da tabela e do gráfico
+        function atualizarFechamento() {
+            document.getElementById('valor-janeiro').textContent = `R$ ${janeiro.toFixed(2)}`;
+            document.getElementById('valor-fevereiro').textContent = `R$ ${fevereiro.toFixed(2)}`;
+            document.getElementById('valor-marco').textContent = `R$ ${marco.toFixed(2)}`;
+            document.getElementById('valor-abril').textContent = `R$ ${abril.toFixed(2)}`;
+
+            myPieChart.data.datasets[0].data = [janeiro, fevereiro, marco, abril];
+            myPieChart.update(); // Atualizar o gráfico
+        }
+
+        // Inicializar o gráfico de rosca
+        const ctx = document.getElementById('myPieChart').getContext('2d');
+        const myPieChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril'],
+                datasets: [{
+                    data: [janeiro, fevereiro, marco, abril],
+                    backgroundColor: ['red', 'blue', 'yellow', 'green'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '50%',
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        atualizarFechamento();
+    </script>
+
+    <script>
+        // Função para alternar a visibilidade do saldo de Junho
+        function toggleVisibility(element) {
+            const parent = element.closest('li');
+
+            const financialData = parent.querySelector('.financial-data');
+            const hiddenData = parent.querySelector('.hidden-data');
+
+            if (financialData.classList.contains('show')) {
+                financialData.classList.remove('show');
+                hiddenData.style.display = 'inline';
+                element.classList.remove('bi-eye');
+                element.classList.add('bi-eye-slash');
+            } else {
+                financialData.classList.add('show');
+                hiddenData.style.display = 'none';
+                element.classList.remove('bi-eye-slash');
+                element.classList.add('bi-eye');
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+    <script src="../JS/navbar.js" defer></script>
+</body>
+
+</html>

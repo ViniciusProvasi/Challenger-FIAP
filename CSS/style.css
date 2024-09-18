@@ -1,0 +1,40 @@
+* {
+    font-family: "Lexend", sans-serif;
+}
+
+#config {
+    width: 85%;
+}
+
+h1 {
+    color: #454444;
+    font-weight: 700;
+}
+
+h2 {
+    color: #454444;
+    font-weight: 600;
+}
+
+#left {
+    color: #454444;
+    font-weight: 500;
+}
+
+#left p {
+    color: #999999;
+}
+
+#right {
+    color: #7D7878;
+    font-weight: 400;
+}
+
+#link {
+    font-weight: 300;
+}
+
+#status {
+    font-weight: 400;
+    color: #51D03D;
+}
